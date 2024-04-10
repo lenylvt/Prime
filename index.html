@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>Youflix</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/underscore@1.11.0/underscore-min.js"></script>
+<link rel="stylesheet" href="styles.css">
+
+<!-- FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+
+<!-- PLAYER -->
+<link rel="stylesheet" href="https://cdn.vidstack.io/player/theme.css" />
+<link rel="stylesheet" href="https://cdn.vidstack.io/player/video.css" />
+<script src="https://cdn.vidstack.io/player" type="module"></script>
+
+<script type="module" src="main.js"></script>
+<script id="app-template" type="text/x-handlebars-template">
+	
+	<div class="container-fluid pl-5 pt-3 logo">
+		<img src="images/logo.png">
+	</div>
+	<div class="featured_video" style="background-image:url('https://img.youtube.com/vi/{{featured.youtubeID}}/maxresdefault.jpg')">
+		<div class="gradient d-flex align-items-end">
+			<div class="container-fluid p-5 ">
+				<div class="row">
+					<div class="col-md-6">
+						<h3>{{featured.name}}</h3>
+						<p>{{featured.description}}</p>
+						<a class="btn btn-light" href="{{featured.url}}">Play Video</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Add this div to your HTML body where you want the video iframe to be displayed -->
+	<div id="videoDisplayArea"></div>
+
+	<div class="container-fluid pl-5 pr-5">
+		{{#each this.videos as |category|}}
+			<h5>{{@key}}</h5>
+			<div class="row">
+				{{#each this as |video|}}
+				<div class="col-md-3">
+					<!-- Add class 'video-link' and ensure 'data-youtube-id' is properly set -->
+					<a href="#" class="video-link" data-youtube-id="{{video.youtubeID}}" data-youtube-name="{{video.name}}">
+					<div class="video-card">
+						<div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/{{video.youtubeID}}/maxresdefault.jpg');">
+						</div>
+						<div class="video-info">
+							<h5 class="video-title">{{video.name}}</h5>
+							<p class="video-creator">{{video.creator}}</p>
+						</div>
+					</div>
+					</a>
+				</div>
+				{{/each}}
+			</div>
+		{{/each}}
+	</div>
+</script>
+</head>
+<body>
+<div id="app">Loading videos...</div>
+</body>
+</html>

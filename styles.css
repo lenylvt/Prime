@@ -1,0 +1,130 @@
+/* Base styles */
+body {
+	background-color: #000000;
+	color: #FFFFFF;
+	font-family: 'Fjalla One';
+}
+
+/* Logo styles */
+.logo {
+	position: fixed;
+	z-index: 1000;
+}
+
+.logo img {
+	height: 50px;
+}
+
+/* Featured video styles */
+.featured_video {
+	background-size: cover; 
+}
+
+.featured_video .gradient {
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(0,0,0,0), #000);
+}
+
+/* Button styles */
+.btn-light {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 12px 10px; /* Increased vertical padding and decreased horizontal padding */
+	font-size: 16px; /* Adjust as needed */
+	border-radius: 6px;
+	color: #3D3D3D;
+	background: #fff;
+	border: none;
+	box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+	transition: all 0.3s ease; /* Smooth transition for hover and focus effects */
+}
+
+.btn-light:hover {
+	transform: scale(1.05); /* Slight increase in size on hover */
+}
+
+.btn-light:focus {
+	box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+	outline: 0;
+}
+
+/* Card styles */
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	transition: all 0.2s ease-in-out;
+  	transform: perspective(1000px) rotateY(0deg);
+  	cursor: pointer;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card:hover {
+	transform: scale(1.15);
+}
+
+/* Text styles */
+.card-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Card styles */
+.video-card {
+  font-family: 'Roboto', sans-serif; /* Utilize your preferred font */
+  color: #fff; /* Change according to your site theme */
+  background: #000; /* Background color for contrast */
+  border-radius: 8px;
+  overflow: hidden; /* Ensures 'border-radius' is applied to children */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.video-card:hover {
+  transform: scale(1.05);
+}
+
+.video-thumbnail {
+  position: relative;
+  height: 200px; /* Adjust according to desired size */
+  background-size: cover;
+  background-position: center;
+}
+
+.video-info {
+  padding: 15px;
+}
+
+.video-title {
+  font-size: 1rem; /* Title size */
+  margin: 5px 0;
+}
+
+.video-creator {
+  font-size: 0.8rem; /* Creator size */
+  font-style: italic;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+/* Player */
+#videoDisplayArea {
+  position: fixed;
+  bottom: 5;
+  right: 5;
+  /* Ajoutez d'autres styles si nécessaire, comme la largeur et la hauteur */
+}
